@@ -12,6 +12,30 @@ import jk from '../images/jenkins.png'
 import docker from '../images/docker.png'
 
 class Main extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { name: "", email: "", message: "" };
+  }
+
+  handleChange = (e) => {
+    this.setState({ ...this.state, [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/.netlify/functions/send-contact-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    })
+      .then(() => {
+        form.innerHTML += `<div class="thanks"><h3>Thank you for the email! I'll be in contact<h3></div>`;
+      })
+      .catch((error) => alert("Error " + error))
+  }
+
   render() {
     let close = (
       <div
@@ -134,24 +158,25 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Mail Me</h2>
-          <form method="post" name="contact" data-netlify="true" netlify-honeypot="bot-field">
+          <form name="contact" method="post" action="/thanks/" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
             <div hidden aria-hidden="true">
               <label>
                 Don’t fill this out if you're human: 
-                <input name="bot-field" />
+                <input name="bot-field" onChange={this.handleChange}/>
               </label>
             </div>
             <div className="field half first">
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="name" id="name" onChange={this.handleChange}/>
             </div>
             <div className="field half">
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
+              <input type="email" name="email" id="email" onChange={this.handleChange}/>
             </div>
             <div className="field">
               <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
+              <textarea name="message" id="message" rows="4" onChange={this.handleChange}></textarea>
             </div>
             <ul className="actions">
               <li>
