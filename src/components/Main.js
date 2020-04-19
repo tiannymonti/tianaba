@@ -9,6 +9,7 @@ import python from '../images/python.png'
 import aws from '../images/aws.png'
 import tf from '../images/terraform.svg'
 import jk from '../images/jenkins.png'
+import docker from '../images/docker.png'
 
 class Main extends React.Component {
   render() {
@@ -91,6 +92,9 @@ class Main extends React.Component {
             </div>
             <div className="toollogo">
               <a className="link" target="_blank" href="https://jenkins.io/"><span className="icon"><img src={jk} alt="" /></span></a>
+            </div>
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://www.docker.com/"><span className="icon"><img src={docker} alt="" /></span></a>
             </div>
           </span>
           
