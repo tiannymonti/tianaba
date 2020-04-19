@@ -18,6 +18,91 @@
 		z-index: 3;
 		display: none;
 
+		.logo {
+			margin: auto;
+			width: 5rem;
+			height: 5rem;
+			line-height: 5rem;
+			border: solid _size(border-width) _palette(border);
+			border-radius: 100%;
+			text-align: center;
+
+			.tooltiptext {
+				visibility: hidden;
+				width: 120px;
+				background-color:_palette(bg);
+				color: _palette(fg);
+				font-size: 0.7rem;
+				text-align: center;
+				border-radius: _size(border-radius);
+				padding: inherit;
+				line-height: 2rem;
+			  
+				/* Position the tooltip */
+				position: absolute;
+				z-index: 1;
+			  }
+		
+			.icon {
+			  &:before {
+				font-size: 2rem;
+			  }
+			}
+
+			&:hover,
+    		&:focus {
+				.tooltiptext {
+					visibility: visible;
+				}
+				border: solid _size(border-width+1px) _palette(border);
+      			background-color: _palette(border-bg);
+    		}
+		}
+
+		.toolbar {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+
+			.toollogo {
+				display: inline-block;
+				width: 2.5rem;
+				height: 2.5rem;
+				line-height: 2.5rem;
+				border: solid _size(border-width) _palette(border);
+				border-radius: 100%;
+				margin-left: 0.5rem;
+				margin-right: 0.5rem;
+				text-align: center;
+			
+				.icon {
+				  &:before {
+					font-size: 1rem;
+				  }
+				  img {
+					object-fit: cover;
+					width: 1.5rem;
+					margin-top: 0.3rem;
+				  }
+				}
+			
+				&:hover,
+				&:focus {
+				  background-color: _palette(border-bg);
+				}
+			}
+
+			.link {
+				border-bottom:none;
+			}
+		}
+
+		.used {
+			padding-top: 1rem;
+			text-align: center;
+		}
+
 		article {
 			@include vendor('transform', 'translateY(0.25rem)');
 			@include vendor('transition', (
@@ -28,7 +113,7 @@
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: transparentize(_palette(bg), 0.15);
+			background-color: transparentize(_palette(bg-overlay), 0.35);
 			border-radius: _size(border-radius);
 			opacity: 0;
 

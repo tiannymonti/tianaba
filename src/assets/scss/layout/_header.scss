@@ -76,6 +76,36 @@
     }
   }
 
+  .socialogo {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border: solid _size(border-width) _palette(border);
+    border-radius: 100%;
+    margin-left: 1rem;
+    margin-right: 2rem;
+
+    .icon {
+      &:before {
+        font-size: 1rem;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: _palette(border-bg);
+    }
+  }
+
+  .link {
+    border-bottom:none;
+  }
+
+  .mainpar {
+    margin-bottom: 0.8rem;
+  }
+
   .content {
     border-style: solid;
     border-color: _palette(border);
@@ -139,6 +169,7 @@
           font-family: _font(family);
           border: none;
           box-shadow: none;
+          margin: auto;
 
           &:hover,
           &:focus {

@@ -4,18 +4,23 @@ import React from 'react'
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
-      <span className="icon fa-diamond"></span>
+      <span className="icon fa-laptop"></span>
     </div>
     <div className="content">
       <div className="inner">
-        <h1>Dimension</h1>
-        <p>
-          A fully responsive site template designed by{' '}
-          <a href="https://html5up.net">HTML5 UP</a> and released
-          <br />
-          for free under the{' '}
-          <a href="https://html5up.net/license">Creative Commons</a> license.
+        <h1>Hi, it's me, Tianny Monti</h1>
+        <p className="mainpar">
+          Backend, DevOps, Infrastructure
         </p>
+        <div className="socialogo">
+          <a className="link" target="_blank" href="https://www.linkedin.com/in/tatiana-barrios-montenegro-b80415127/"><span className="icon fa-linkedin"></span></a>
+        </div>
+        <div className="socialogo">
+          <a className="link" target="_blank" href="https://github.com/tiannymonti"><span className="icon fa-github"></span></a>
+        </div>
+        <div className="socialogo">
+          <a className="link" target="_blank" href="https://twitter.com/villaintianny"><span className="icon fa-twitter"></span></a>
+        </div>
       </div>
     </div>
     <nav>
@@ -23,19 +28,10 @@ const Header = props => (
         <li>
           <button
             onClick={() => {
-              props.onOpenArticle('intro')
-            }}
-          >
-            Intro
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => {
               props.onOpenArticle('work')
             }}
           >
-            Work
+            Experience
           </button>
         </li>
         <li>
@@ -44,7 +40,7 @@ const Header = props => (
               props.onOpenArticle('about')
             }}
           >
-            About
+            Who am I?
           </button>
         </li>
         <li>
@@ -53,7 +49,7 @@ const Header = props => (
               props.onOpenArticle('contact')
             }}
           >
-            Contact
+            Mail me
           </button>
         </li>
       </ul>

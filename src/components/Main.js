@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
+import code from '../images/code.svg'
+import infra from '../images/infra.svg'
+import mtnc from '../images/maintenance.svg'
 import pic03 from '../images/pic03.jpg'
+import nodejs from '../images/nodejs.png'
+import python from '../images/python.png'
+import aws from '../images/aws.png'
+import tf from '../images/terraform.svg'
+import jk from '../images/jenkins.png'
 
 class Main extends React.Component {
   render() {
@@ -22,65 +28,72 @@ class Main extends React.Component {
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
         <article
-          id="intro"
-          className={`${this.props.article === 'intro' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-          style={{ display: 'none' }}
-        >
-          <h2 className="major">Intro</h2>
-          <span className="image main">
-            <img src={pic01} alt="" />
-          </span>
-          <p>
-            Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-            aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-            convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-            magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas.
-            By the way, check out my <a href="#work">awesome work</a>.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-            libero eu nibh porttitor fermentum. Nullam venenatis erat id
-            vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-            Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-            dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-            lectus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. In non lorem sit amet elit
-            placerat maximus. Pellentesque aliquam maximus risus, vel sed
-            vehicula.
-          </p>
-          {close}
-        </article>
-
-        <article
           id="work"
           className={`${this.props.article === 'work' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Work</h2>
-          <span className="image main">
-            <img src={pic02} alt="" />
+          <h2 className="major">Experience</h2>
+          <span className="image tool">
+            <img src={code} alt="" />
+            <span className="text">
+              <h3>Coding</h3>
+              <p>
+                Since 2017, I've worked on Frontend and Backend development, from
+                scripting to fully fledged applications. My toolbelt includes Java, NodeJS 
+                and Python. 
+              </p>
+            </span>
           </span>
-          <p>
-            Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu,
-            at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent
-            urna nisi, fringila lorem et vehicula lacinia quam. Integer
-            sollicitudin mauris nec lorem luctus ultrices.
-          </p>
-          <p>
-            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.
-            Pellentesque condimentum sem. In efficitur ligula tate urna.
-            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.
-            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat
-            tempus.
-          </p>
+
+          <span className="image tool">
+            <img className="imageAbove" src={infra} alt="" />
+            <span className="textLeft">
+              <h3>Infrastructure</h3>
+              <p>
+                I also have experience with building architecture on the cloud, mainly
+                with AWS tools, and a little bit with GCP services. I'm very keen on IaaC, 
+                so I've implemented Terraform, the Serverless framework and more recently, 
+                Troposphere (Cloudformation). 
+              </p>
+            </span>
+            <img className="imageBelow" src={infra} alt="" />
+          </span>
+
+          <span className="image tool">
+            <img src={mtnc} alt="" />
+            <span className="text">
+              <h3>DevOps</h3>
+              <p>
+              Aside from that, I really enjoy working on the DevOps side: CI/CD 
+              pipelines, server maintenance and process automation are some of the
+              tasks I do almost every day. 
+            </p>
+            </span>
+            
+          </span>
+
+          <h3 className="used">Used Tools</h3>
+
+          <span className="toolbar">
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://nodejs.org/en/"><span className="icon"><img src={nodejs} alt="" /></span></a>
+            </div>
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://www.python.org/"><span className="icon"><img src={python} alt="" /></span></a>
+            </div>
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://aws.amazon.com/"><span className="icon"><img src={aws} alt="" /></span></a>
+            </div>
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://www.terraform.io/"><span className="icon"><img src={tf} alt="" /></span></a>
+            </div>
+            <div className="toollogo">
+              <a className="link" target="_blank" href="https://jenkins.io/"><span className="icon"><img src={jk} alt="" /></span></a>
+            </div>
+          </span>
+          
           {close}
         </article>
 
@@ -91,19 +104,21 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">About</h2>
+          <h2 className="major">Who am I?</h2>
           <span className="image main">
-            <img src={pic03} alt="" />
+            <img src={pic03} alt="personal photo" />
           </span>
           <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
+            My name is TBM. I'm an Electronics Engineer with 2 years of experience on Backend 
+            development and infrastructure support, who likes to participate on the build up and 
+            growth of software projects. Big fan of singing while programming, doing yoga, long 
+            walks and crocheting. If you want to know more about me, you can download my resume 
+            on the icon below.
           </p>
+          <div className="logo">
+            <span className="tooltiptext">Download resume.pdf</span>
+            <a href="https://drive.google.com/open?id=1WSENL4JWIPPRsDU4yAdjKa8ayYMXsrMv" target="_blank"><span className="icon fa-file-pdf-o"></span></a>
+          </div>
           {close}
         </article>
 
@@ -114,7 +129,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Contact</h2>
+          <h2 className="major">Mail Me</h2>
           <form method="post" action="#">
             <div className="field half first">
               <label htmlFor="name">Name</label>
@@ -140,28 +155,23 @@ class Main extends React.Component {
           <ul className="icons">
             <li>
               <a
-                href="https://twitter.com/HuntaroSan"
+                href="https://www.linkedin.com/in/tatiana-barrios-montenegro-b80415127/"
+                className="icon fa-linkedin"
+              >
+                <span className="label">Linkedin</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/tiannymonti" className="icon fa-github">
+                <span className="label">GitHub</span>
+              </a>
+            </li>
+           <li>
+              <a
+                href="https://twitter.com/villaintianny"
                 className="icon fa-twitter"
               >
                 <span className="label">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://codebushi.com" className="icon fa-facebook">
-                <span className="label">Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://codebushi.com" className="icon fa-instagram">
-                <span className="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/codebushi/gatsby-starter-dimension"
-                className="icon fa-github"
-              >
-                <span className="label">GitHub</span>
               </a>
             </li>
           </ul>
