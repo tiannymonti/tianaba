@@ -137,7 +137,7 @@ class Main extends React.Component {
             <img src={pic03} alt="personal photo" />
           </span>
           <p>
-            My name is TBM. I'm an Electronics Engineer with 2 years of experience on Backend 
+            My name is Tatiana Barrios. I'm an Electronics Engineer with 2 years of experience on Backend 
             development and infrastructure support, who likes to participate on the build up and 
             growth of software projects. Big fan of singing while programming, doing yoga, long 
             walks and crocheting. If you want to know more about me, you can download my resume 
