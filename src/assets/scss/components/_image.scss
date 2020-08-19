@@ -72,6 +72,18 @@
 			}
 		}
 
+		&.minor {
+			display: block;
+			margin: (_size(element-margin) * 0.3) 0;
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		
+
 		&.tool {
 			display: inline-flex;
 			width: 100%;

@@ -15,7 +15,7 @@ class Main extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { name: "", email: "", message: "" };
+    this.state = { name: "", email: "", message: "", articles: [] };
   }
 
   handleChange = (e) => {
@@ -36,6 +36,20 @@ class Main extends React.Component {
       .catch((error) => alert("Error " + error))
   }
 
+  handleBlog = () => {
+    fetch('/.netlify/functions/get-blog-articles')
+      .then(response => response.json())
+      .then(json => {
+        this.setState({ ...this.state, articles: json})
+        console.log(this.state)
+      })
+      .catch((error) => console.log("Error " + error))
+  }
+
+  componentDidMount(){
+    this.handleBlog();
+  }
+
   render() {
     let close = (
       <div
@@ -45,6 +59,20 @@ class Main extends React.Component {
         }}
       ></div>
     )
+
+    let listItems = this.state.articles.map((article) =>  
+        <li key={article.id}>
+          <h3 className="minor"> <a className="minor" href={article.url} target="_blank">{article.title}</a></h3>
+          <p className="date">
+            {article.publish_date}
+          </p>
+          <span className="image minor">
+            <img src={article.image} alt="personal photo" />
+          </span>
+          <p>
+            {article.description}
+          </p>
+        </li>);
 
     return (
       <div
@@ -150,6 +178,21 @@ class Main extends React.Component {
           {close}
         </article>
 
+        <article
+          id="blog"
+          className={`${this.props.article === 'blog' ? 'active' : ''} ${
+            this.props.articleTimeout ? 'timeout' : ''
+          }`}
+          style={{ display: 'none' }}
+        >
+          <h2 className="major">Blog posts</h2>
+
+          <ul className="blogs">
+          {listItems}
+          </ul>
+          {close}
+        </article>
+          
         <article
           id="contact"
           className={`${this.props.article === 'contact' ? 'active' : ''} ${

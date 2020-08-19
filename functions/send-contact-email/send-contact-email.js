@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed', headers: { 'Allow': 'POST' } }
   }
 
-  console.log("Tu principe", event.body)
+  console.log("Testing", event.body)
   const data = JSON.parse(event.body)
   if (!data.message || !data.name || !data.email) {
     return { statusCode: 422, body: 'Name, email, and message are required.' }
